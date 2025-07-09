@@ -17,13 +17,16 @@ read TARGETIP
 echo -n "Enter the name of CTF Machine: "
 read CTFNAME
 
+echo -n "Enter the CTF Platform or your custom name for the directory"
+read CUSTOM
 #takes values from the user later to be used for the porpuse of this script
 
 export TARGETIP
 export CTFNAME
-
+export CUSTOM
 export TIMESTAMP=$(date +"%d-%m-%Y_%H-%M")
-CTFDIR="${CTFNAME}_${TIMESTAMP}_HTB"
+
+CTFDIR="${CTFNAME}_${TIMESTAMP}_${CUSTOM}"
 mkdir -p ./"$CTFDIR" || { echo "[-] Failed to create directory."; exit 1; }
 # makes a dir for the ctf by its name and timestamp
 
